@@ -1,0 +1,66 @@
+DROP TABLE IF EXISTS [User];
+DROP TABLE IF Exists [HasWorkout];
+DROP TABLE IF EXISTS [Workout];
+DROP TABLE IF EXISTS [CompletedExercise];
+DROP TABLE IF EXISTS [Exercise];
+DROP TABLE IF EXISTS [ExerciseRecord];
+
+
+CREATE TABLE User(
+  [UserName] NVARCHAR(255) PRIMARY KEY NOT NULL,
+  [FirstName] NVARCHAR(255) NOT NULL,
+  [LastName] NVARCHAR(255) NOT NULL,
+  [Password] NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE HasWorkout(
+    [HasWorkoutID] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Month] INTEGER NOT NULL,
+    [Day] INTEGER NOT NULL,
+    [Year] INTEGER NOT NULL,
+    [UserName] NVARCHAR (255),
+    [WorkoutID] INTEGER,
+        FOREIGN KEY ([UserName]) REFERENCES [User] ([UserName])
+            ON DELETE NO ACTION ON UPDATE NO ACTION,
+        FOREIGN KEY ([WorkoutID]) REFERENCES [Workout] ([WorkoutID])
+            ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE Workout(
+    WorkoutID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    Type NVARCHAR (255) NOT NULL,
+    Hours INTEGER NOT NULL,
+    Minutes INTEGER NOT NULL
+);
+
+CREATE TABLE CompletedExercise(
+    CompletedExerciseID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    ExerciseName VARCHAR(255) NOT NULL,
+    WorkoutID INNTEGER,
+    Reps INTEGER NOT NULL,
+    Weight INTEGER NOT NULL,
+    Sets INTEGER NOT NULL,
+        FOREIGN KEY ([ExerciseName]) REFERENCES [Exercise] ([ExerciseName])
+            ON DELETE NO ACTION ON UPDATE NO ACTION,
+        FOREIGN KEY ([WorkoutID]) REFERENCES [Workout] ([WorkoutID])
+            ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE Exercise(
+    ExerciseName NVARCHAR(255) PRIMARY KEY NOT NULL,
+    Type NVARCHAR(255)
+);
+
+CREATE TABLE ExerciseRecord(
+    ExerciseRecordID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    UserName NVARCHAR(255) NOT NULL,
+    ExerciseName NVARCHAR(255) NOT NULL,
+    NumUsed INTEGER NOT NULL,
+    MaxWeight  INTEGER NOT NULL,
+    MaxReps INTEGER NOT NULL,
+    MaxSets INTEGER NOT NULL,
+        FOREIGN KEY ([ExerciseName]) REFERENCES [Exercise] ([ExerciseName])
+            ON DELETE NO ACTION ON UPDATE NO ACTION,
+        FOREIGN KEY ([UserName]) REFERENCES [User] ([UserName])
+            ON DELETE NO ACTION ON UPDATE NO ACTION
+);

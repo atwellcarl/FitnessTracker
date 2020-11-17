@@ -1,0 +1,47 @@
+<LoginWindow>:
+    name: "login_window"
+    user_name: user_name
+    password: password
+
+    FloatLayout:
+    	canvas:
+            Rectangle:
+                source: 'Images/login_background.jpg'
+                size: self.size
+                pos: self.pos
+        Label:
+            text: "User Name: "
+            size_hint: (.25, .10)
+            pos_hint: {'x': .10, 'y':.525}
+            color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+        TextInput:
+            id: user_name
+            multiline: False
+            font_size: 30
+            size_hint: (.3, .05)
+            pos_hint: {'center_x': .5, 'y': .550}
+        Label:
+            text: "Password: "
+            size_hint: (.25, .10)
+            pos_hint: {'x': .10, 'y':.425}
+            color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+        TextInput:
+            id: password
+            multiline: False
+            password: True
+            font_size: 30
+            size_hint: (.3, .05)
+            pos_hint: {'center_x': .5, 'y': .450}
+        Button:
+            text: "Login"
+			font_size: 20
+            size_hint: (.25, .10)
+            pos_hint: {'center_x':.5, 'center_y':.35}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.login()
+                root.reset_inputs()

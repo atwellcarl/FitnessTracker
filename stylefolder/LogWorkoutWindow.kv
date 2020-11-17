@@ -1,0 +1,132 @@
+<LogWorkoutWindow>:
+    name: "log_workout_window"
+
+    spinner: spinner
+    hours: hours
+    minutes: minutes
+    exercise_name: exercise_name
+    reps: reps
+    sets: sets
+    weight: weight
+
+    FloatLayout:
+    	canvas:
+            Rectangle:
+                source: 'Images/login_background.jpg'
+                size: self.size
+                pos: self.pos
+        Label:
+            id: welcome_text
+            text: "Select Workout Type: "
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .15, "center_y": .85 }
+        Spinner:
+            id: spinner
+            size_hint: (.15, .05)
+            size: 100, 44
+            pos_hint: {"center_x": .35, "center_y": .85 }
+            text: 'Freeweight'
+            values: 'Freeweight', 'Bodyweight', 'HIIT', 'Yoga'
+        Label:
+            text: "Duration: "
+            size_hint: (.1, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .85 }
+        TextInput:
+            id: hours
+            multiline: False
+            text: "Hrs"
+            font_size: 30
+            size_hint: (.05, .05)
+            pos_hint: {'center_x': .6, 'center_y': .85}
+        TextInput:
+            id: minutes
+            multiline: False
+            text: "Min"
+            font_size: 30
+            size_hint: (.05, .05)
+            pos_hint: {'center_x': .7, 'center_y': .85}
+        Button:
+            text: "Log Workout"
+			font_size: 20
+            size_hint: (.25, .10)
+            pos_hint: {'center_x':.5, 'center_y':.35}
+            on_release:
+                root.create_workout()
+
+
+        Label:
+            text: "Log Exercises For Your Workout"
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .3, "center_y": .7 }
+        Label:
+            text: "Name"
+            size_hint: (.1, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .2, "center_y": .65 }
+        TextInput:
+            id: exercise_name
+            multiline: False
+            text: ""
+            font_size: 30
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .2, 'center_y': .6}
+        Label:
+            text: "Reps"
+            size_hint: (.1, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .4, "center_y": .65 }
+        TextInput:
+            id: reps
+            multiline: False
+            text: ""
+            font_size: 30
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .4, 'center_y': .6}
+        Label:
+            text: "Sets"
+            size_hint: (.1, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .6, "center_y": .65 }
+        TextInput:
+            id:  sets
+            multiline: False
+            text: ""
+            font_size: 30
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .6, 'center_y': .6}
+        Label:
+            text: "Weight"
+            size_hint: (.1, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .8, "center_y": .65 }
+        TextInput:
+            id: weight
+            multiline: False
+            text: ""
+            font_size: 30
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .8, 'center_y': .6}
+        Button:
+            text: "Log Exercise"
+			font_size: 20
+            size_hint: (.8, .10)
+            pos_hint: {'center_x':.5, 'center_y':.5}
+            on_release:
+                root.log_exercise()

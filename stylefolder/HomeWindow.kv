@@ -1,0 +1,24 @@
+<HomeWindow>:
+    name: "home_window"
+    FloatLayout:
+    	canvas:
+            Rectangle:
+                source: 'Images/login_background.jpg'
+                size: self.size
+                pos: self.pos
+        Label:
+            id: welcome_text
+            text: "Welcome!"
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .65 }
+        Button:
+            text: "Log Workout"
+			font_size: 20
+            size_hint: (.25, .10)
+            pos_hint: {'center_x':.5, 'center_y':.35}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.log_workout()
