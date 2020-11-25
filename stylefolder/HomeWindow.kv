@@ -22,3 +22,19 @@
             on_release:
                 root.manager.transition.direction = "right"
                 root.log_workout()
+        Button:
+            text: "Search Exercise Record"
+			font_size: 20
+            size_hint: (.25, .10)
+            pos_hint: {'center_x':.5, 'center_y':.25}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.search_records()
+        Button:
+            text: "View General Statistics"
+			font_size: 20
+            size_hint: (.25, .10)
+            pos_hint: {'center_x':.5, 'center_y':.15}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.view_general_statistics()

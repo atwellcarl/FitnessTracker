@@ -12,17 +12,20 @@ class LoginWindow(Screen):
     kv = Builder.load_file("stylefolder/LoginWindow.kv")
     user_name = ObjectProperty(None)
     password = ObjectProperty(None)
-
+    user_info_loc = []
 
 
     def login(self):
-        user_info.append(self.user_name.text)
-        user_info.append(self.password.text)
+        self.user_info_loc.append(self.user_name.text)
+        self.user_info_loc.append(self.password.text)
 
-        if(db.is_user(user_info[0], user_info[1])):
+        if(db.contains_user(self.user_info_loc[0], self.user_info_loc[1])):
+            user_info.append(self.user_info_loc[0])
+            user_info.append(self.user_info_loc[1])
             wm.screen_manager.current = "home_window"
         else:
             self.pop_up( "Invalid Login", "User Name or \n Password was incorrect.")
+            self.user_info_loc = []
 
 
     def reset_inputs(self):

@@ -1,0 +1,54 @@
+<GeneralStatsWindow>:
+    name: "general_stats_window"
+    fav_exercise: fav_exercise
+    total_hours: total_hours
+    percentage: percentage
+    type_counts: type_counts
+
+    on_enter: root.get_personal_stats()
+
+    FloatLayout:
+    	canvas:
+            Rectangle:
+                source: 'Images/login_background.jpg'
+                size: self.size
+                pos: self.pos
+        Label:
+            id: fav_exercise
+            text: ""
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .85 }
+        Label:
+            id: total_hours
+            text: ""
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .75 }
+        Label:
+            id: percentage
+            text: ""
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .65 }
+        Label:
+            id: type_counts
+            text: ""
+            size_hint: (.25, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .5 }
+        Button:
+            text: "< Back"
+			font_size: 20
+            size_hint: (.10, .05)
+            pos_hint: {'center_x':.05, 'center_y':.975}
+            on_release:
+                root.return_home()

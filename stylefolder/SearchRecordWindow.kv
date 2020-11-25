@@ -1,0 +1,99 @@
+<SearchRecordWindow>:
+    name: "search_record_window"
+
+    search_word: search_word
+    titles: titles
+    result_zero: result_zero
+    result_one: result_one
+    result_two: result_two
+    result_three: result_three
+    result_four: result_four
+
+    FloatLayout:
+    	canvas:
+            Rectangle:
+                source: 'Images/login_background.jpg'
+                size: self.size
+                pos: self.pos
+        TextInput:
+            id: search_word
+            multiline: False
+            font_size: 30
+            size_hint: (.6, .05)
+            pos_hint: {'center_x': .4, 'center_y': .85}
+        Button:
+            text: "Search"
+			font_size: 20
+            size_hint: (.25, .05)
+            pos_hint: {'center_x':.825, 'center_y':.85}
+            on_release:
+                root.search()
+        Button:
+            text: "Next >"
+			font_size: 20
+            size_hint: (.25, .05)
+            pos_hint: {'center_x':.825, 'center_y':.2}
+            on_release:
+                root.next()
+        Button:
+            text: "< Prev"
+			font_size: 20
+            size_hint: (.25, .05)
+            pos_hint: {'center_x':.25, 'center_y':.2}
+            on_release:
+                root.prev()
+        Label:
+            id: titles
+            text: ""
+            size_hint: (.3, .25)
+            color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .5, "center_y": .75 }
+        Label:
+            id: result_zero
+            text: ""
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .45, "center_y": .7 }
+        Label:
+            id: result_one
+            text: ""
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .45, "center_y": .6 }
+        Label:
+            id: result_two
+            text: ""
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .45, "center_y": .5 }
+        Label:
+            id: result_three
+            text: ""
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .45, "center_y": .4 }
+        Label:
+            id: result_four
+            text: ""
+            size_hint: (.3, .25)
+			color: (1, 1, 1, 1)
+            markup: True
+            font_size: 40
+            pos_hint: {"center_x": .45, "center_y": .3 }
+        Button:
+            text: "< Back"
+            font_size: 20
+            size_hint: (.10, .05)
+            pos_hint: {'center_x':.05, 'center_y':.975}
+            on_release:
+                root.return_home()

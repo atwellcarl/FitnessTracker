@@ -68,7 +68,7 @@
             font_size: 40
             pos_hint: {"center_x": .3, "center_y": .7 }
         Label:
-            text: "Name"
+            text: "Exercise Name"
             size_hint: (.1, .25)
 			color: (1, 1, 1, 1)
             markup: True
@@ -110,7 +110,7 @@
             size_hint: (.15, .05)
             pos_hint: {'center_x': .6, 'center_y': .6}
         Label:
-            text: "Weight"
+            text: "Weight (lbs)"
             size_hint: (.1, .25)
 			color: (1, 1, 1, 1)
             markup: True
@@ -130,3 +130,10 @@
             pos_hint: {'center_x':.5, 'center_y':.5}
             on_release:
                 root.log_exercise()
+        Button:
+            text: "< Back"
+			font_size: 20
+            size_hint: (.10, .05)
+            pos_hint: {'center_x':.05, 'center_y':.975}
+            on_release:
+                root.return_home()

@@ -6,6 +6,8 @@ from windowclasses import WindowManager as wm
 from windowclasses import LoginWindow
 from windowclasses import HomeWindow
 from windowclasses import LogWorkoutWindow
+from windowclasses import SearchRecordWindow
+from windowclasses import GeneralStatsWindow
 
 
 usr_nme = ""
@@ -32,15 +34,19 @@ screen_manager = wm.WindowManager()
 wm.screen_manager = screen_manager
 windows = []
 
+
 windows.append(LoginWindow.LoginWindow(name = "login_window"))
 windows.append(HomeWindow.HomeWindow(name = "home_window"))
 windows.append(LogWorkoutWindow.LogWorkoutWindow(name = "log_workout_window"))
+windows.append(SearchRecordWindow.SearchRecordWindow(name = "search_record_window"))
+windows.append(GeneralStatsWindow.GeneralStatsWindow(name = "general_stats_window"))
 
 
 for window in windows:
     screen_manager.add_widget(window)
 
-screen_manager.current = "log_workout_window"
+
+screen_manager.current = "login_window"
 
 
 class MyFitnessApp(App):
