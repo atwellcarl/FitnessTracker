@@ -1,3 +1,4 @@
+#Needed to make a change inorder to fix github account
 import sqlite3
 
 con  = sqlite3.connect("Fitness.db")
